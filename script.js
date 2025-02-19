@@ -8,20 +8,23 @@ const isReadInput = document.querySelector("#is-read");
 
 let libraryArray = [];
 
-function Book(title, author, pageCount, isRead) {
-    this.title = title;
-    this.author = author;
-    this.pageCount = pageCount;
-    this.isRead = isRead;
-}
+class Book {
 
-Book.prototype.toggleRead = function() {
-    if (this.isRead) {
-        this.isRead = false;
-    } else {
-        this.isRead = true;
+    constructor(title, author, pageCount, isRead) {
+        this.title = title;
+        this.author = author;
+        this.pageCount = pageCount;
+        this.isRead = isRead;
     }
-};
+
+    toggleRead() {
+        if (this.isRead) {
+            this.isRead = false;
+        } else {
+            this.isRead = true;
+        }
+    }
+}
 
 function addBookToLibrary(event) {
     const book = new Book(titleInput.value,
